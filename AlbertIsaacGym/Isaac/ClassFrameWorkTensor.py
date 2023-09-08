@@ -103,7 +103,7 @@ class AlbertEnvironment():
         _root_tensor = self.gym.acquire_actor_root_state_tensor(self.sim)
         self.root_tensor = gymtorch.wrap_tensor(_root_tensor)
 
-        ############################### Creation des objets tenseurs albert et room #########################################
+        ############################### Creation of the Room and Albert objects #########################################
         print(" ENVS : " + str(envs))
         print("albert handle : "+str(self.albert_handle))
         self.room_manager.add_room(Room(self.num_bodies,self.num_envs))
@@ -169,39 +169,30 @@ class AlbertEnvironment():
         self.reset(reset_tensor)
 
     def reset(self, reset_tensor):
-        print("BBBBBBBBBBBBBBBBBBBBBB")
         room_tensor=self.room_manager.room_array[self.albert_tensor.actual_room]
         room_tensor.reset_room(self.root_tensor,self.albert_tensor,reset_tensor)
-        ################################ REVOIR CES 2 LIGNES AU CAS OU ###########################################
-        print("CCCCCCCCCCCCCCCCCCCC")
+
         pos = torch.tensor([1+2*torch.rand(1),1+4*torch.rand(1),0.75]).repeat(self.num_envs,1)
         ori = torch.tensor([0,0,torch.rand(1)*2*torch.pi - torch.pi]).repeat(self.num_envs,1)
 
         ori = euler_to_quaternion(ori)
-        print("DDDDDDDDDDDDDDDD")
+
         self.root_tensor[self.albert_tensor.id_array][:,:3]=torch.where(reset_tensor.unsqueeze(1).repeat(1,3).type(torch.bool),pos,self.root_tensor[self.albert_tensor.id_array][:,:3])
         self.root_tensor[self.albert_tensor.id_array][:,3:7] = torch.where(reset_tensor.unsqueeze(1).repeat(1,4).type(torch.bool), ori,self.root_tensor[self.albert_tensor.id_array][:,3:7])
-        print("EEEEEEEEEEEEEEEEEEEEEEEE")
+
         self.albert_tensor.reset_memory_state(reset_tensor)
-        print("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
         self.gym.refresh_actor_root_state_tensor(self.sim)
-        print("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
         self.compute_observations()
-        print("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
         self.time_passed[reset_tensor]=0
-        print("IIIIIIIIIIIIIIIIIIIIIIIIIII")
 
 
     def compute_observations(self):##################### FINI ##############################
         # refresh state tensor
-        print("BIBTITETETETE")
         self.gym.refresh_actor_root_state_tensor(self.sim)
-        print("cacacacacacac")
+
         self.obs_buf = self.albert_tensor.get_observation()
-        print("popopopop")
 
         self.update_state()
-        print("ufugugug")
 
 
     def compute_reward(self):##################### FINI #########################
