@@ -1,4 +1,4 @@
-from Isaac.ObjetsEnvironnementTensor.CubeTensor import Cube
+from Isaac.ObjectsEnvironmentTensor.CubeTensor import Cube
 import torch
 
 class Button(Cube):  # Classe des bouttons : spots verts ou l'acteur doit passer pour ouvrir la porte

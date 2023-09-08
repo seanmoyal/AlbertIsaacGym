@@ -3,9 +3,9 @@ from isaacgym import gymapi
 from isaacgym import gymutil
 from isaacgym import gymtorch
 import torch
-from Isaac.ObjetsEnvironnementTensor.RoomManagerTensor import RoomManager
-from Isaac.ObjetsEnvironnementTensor.AlbertTensor import AlbertCube
-from Isaac.ObjetsEnvironnementTensor.RoomTensor import Room
+from Isaac.ObjectsEnvironmentTensor.RoomManagerTensor import RoomManager
+from Isaac.ObjectsEnvironmentTensor.AlbertTensor import AlbertCube
+from Isaac.ObjectsEnvironmentTensor.RoomTensor import Room
 import math
 import numpy as np
 class AlbertEnvironment():

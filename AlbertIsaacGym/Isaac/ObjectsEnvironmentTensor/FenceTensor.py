@@ -1,4 +1,4 @@
-from Isaac.ObjetsEnvironnementTensor.CubeTensor import Cube
+from Isaac.ObjectsEnvironmentTensor.CubeTensor import Cube
 class Fence(Cube): # classe d'une barrière pour empêcher l'ia de passer
 
     def __init__(self,id_tensor,depth,height): #ajouter l'id

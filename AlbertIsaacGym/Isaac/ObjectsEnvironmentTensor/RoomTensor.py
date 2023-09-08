@@ -1,5 +1,5 @@
-from Isaac.ObjetsEnvironnementTensor.ButtonTensor import Button
-from Isaac.ObjetsEnvironnementTensor.DoorTensor import Door
+from Isaac.ObjectsEnvironmentTensor.ButtonTensor import Button
+from Isaac.ObjectsEnvironmentTensor.DoorTensor import Door
 import torch
 
 class Room:  # classe d'une chambre ( niveau )

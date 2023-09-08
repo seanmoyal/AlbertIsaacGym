@@ -1,4 +1,4 @@
-from Isaac.ObjetsEnvironnementTensor.CubeTensor import Cube
+from Isaac.ObjectsEnvironmentTensor.CubeTensor import Cube
 import torch
 class Door(Cube):
     def __init__(self,id_tensor):

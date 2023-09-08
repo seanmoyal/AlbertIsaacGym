@@ -4,7 +4,7 @@ import torch
 import torch.nn.functional as F
 import math
 import numpy as np
-from Isaac.ObjetsEnvironnementTensor.CubeTensor import Cube
+from Isaac.ObjectsEnvironmentTensor.CubeTensor import Cube
 
 # Classe de l'Acteur : Albert
 class AlbertCube(Cube):
