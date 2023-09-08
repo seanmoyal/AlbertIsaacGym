@@ -1,7 +1,12 @@
 # Albert On isaacgym
 
+
+On the computer Yufu, this project is located at :
+
+    ~/git/smoyal/isaacgymEnvi/isaacgymEnvi/testIsaac
+
 ## Environment dependencies
-the installation is already made on yufu
+The installation is already made on yufu:
 
 If not, install isaacgym : https://developer.nvidia.com/isaac-gym
 
@@ -22,8 +27,8 @@ raycasting casts 21 times ray_collision() to cast rays that detect objects by sh
 
 ## A key difference : 
 ### we work now with multiple rooms simultaneously : 
-Therefore even though there is still a unique object Albert and a unique Object Room,
-everyone of their former scalar component is now a torch tensor of size (number_of_environments)
+Therefore, even though there is still a unique object Albert and a unique Object Room,
+every one of their former scalar component is now a torch tensor of size (number_of_environments)
 
 ### To reset environments, we use a tensor:
 This tensor reset_tensor is a boolean tensor of size (number_of_environments)
